@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "ndc"
+version = "0.1.0"
+description = "Code for the Networking For Developers Presentation"
+authors = ["Matthew Raspberry <3092450+mraspberry@users.noreply.github.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+[tool.poetry.scripts]
+ndc-client = 'ndc.client:main'
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
