@@ -10,15 +10,16 @@ def main():
         level=logging.DEBUG, format="{asctime}|{levelname:8}|{message}", style="{"
     )
     logging.debug("Getting address info for domain %s", host)
+    info = socket.getaddrinfo(
+        host, 443, family=socket.AF_INET, proto=socket.IPPROTO_TCP
+    )
     (
         sock_family,
         sock_type,
         sock_proto,
         sock_canonname,
         sock_addr,
-    ) = socket.getaddrinfo(host, 443, family=socket.AF_INET, proto=socket.IPPROTO_TCP)[
-        0
-    ]
+    ) = info[0]
     logging.debug("Creating TLS context for TLS connection")
     ctx = ssl.create_default_context()
     logging.debug("Creating IPv4 TCP socket")
